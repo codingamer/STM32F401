@@ -1,3 +1,7 @@
+#include "stm32f4xx.h"
+#include "main.h"
+#include "TIM5.h"
+
 //This function configre TIM5 to generate an interruption each Nms
 void TIM5_Config(uint32_t N){
 	//activate TIM5 Clock
@@ -21,13 +25,13 @@ void TIM5_Config(uint32_t N){
 //TIM5 Handler
 void TIM5_IRQHandler(void){
 	if((TIM5->SR & TIM_SR_UIF) && (TIM5->DIER & TIM_DIER_UIE)){
-    /*
-     ****************
-     ****************
-     **DO SOMETHING**
-     ****************
-     ****************
-    */
+		/*
+		****************
+		****************
+		**DO SOMETHING**
+		****************
+		****************
+		*/
 		TIM5->SR &= ~(TIM_SR_UIF);	
 	}
 }
